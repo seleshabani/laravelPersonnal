@@ -1,0 +1,69 @@
+
+@extends('layouts.app')
+
+@section('title', $post->title)
+
+@section('content')
+
+<div class="container">
+    <div class="single-container">
+        <div class="post-container">
+            <h1>{{ $post->title }}</h1>
+            <div class="post-img">
+                <img src="{{ url('storage/app/'.$post->image) }}" alt="">
+            </div>
+            <div class="post-content">
+                {!! Markdown::parse($post->content) !!}
+            </div>
+            {{-- <div class="post-comments">
+                <h2 class="section-title">commentaires</h2>
+                <% comments.map(comment =>{%>
+                    <div class="post-comments-comment">
+                        <div class="autor">
+                            <span>
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <span>
+                                <%= comment.autorName %>
+                            </span>
+                        </div>
+                        <div class="content">
+                            <span>
+                              -  <%= comment.content %>
+                            </span>
+                        </div>
+                    </div> 
+                <%})%>
+            </div> --}}
+            <div class="post-action">
+                <h2 class="section-title">Laissez un commentaire</h2>
+                {{-- <% if(locals.user === undefined){%> --}}
+                    {{-- <a href="/login<%= url('login.choice') %>">
+                    Connectez vous pour laisser un commentaire
+                    </a> --}}
+                {{-- <% } else { %> --}}
+                <form action="" method="post">
+                    <div class="form-row">
+                        <div class="form-input">
+                            <input type="email" name="email" placeholder="email">
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="name" placeholder="votre nom(pseudo)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <textarea name="content" id="" cols="30" rows="10" placeholder="votre commentaire ici">
+                            
+                        </textarea>
+                    </div>
+                    <div class="form-action">
+                        <button class="
+                        btn">Commenter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
