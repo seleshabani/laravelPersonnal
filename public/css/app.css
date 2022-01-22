@@ -303,6 +303,8 @@ main .container .top-header .right-content{
     gap: 1rem;
     overflow-y: hidden;
     word-break: break-all;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .daily-news-items-item .img{
     border-radius: 5px;

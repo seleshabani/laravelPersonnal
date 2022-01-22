@@ -27,7 +27,7 @@ class CategoriesFactory extends Factory
     {
         return $this->afterMaking(function (Categories $categories) {
         })->afterCreating(function (Categories $categories) {
-            Posts::factory()::new(['categorie_id'=>$categories->getkey()])->count(5)->create();
+            Posts::factory()::new(['categorie_id'=>$categories->getkey()])->count(15)->create();
             
         });
     }

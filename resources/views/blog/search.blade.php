@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $categorie->title)
+@section('title', $query)
 
 @section('content')
 <div class="container">
@@ -15,10 +15,10 @@
                         </div>
                         <div class="text">
                             <div class="cat-and-autor">
-                                <span class="cat">{{ $categorie->title }}</span>
+                                <span class="cat"></span>
                                 <span class="autor">Sele shabani</span>
                             </div>
-                            <a href="{{ route('single',['slug'=>$categorie->slug,'newsSlug'=>$post->slug]) }}" class="title">
+                            <a href="" class="title">
                                 {{ $post->title }}
                             </a>
                             <p>

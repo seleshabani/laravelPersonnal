@@ -21,10 +21,11 @@
         <div class="brand">
             <a href="{{route('home')}}">{{ config('app.name', 'Laravel') }}</a>
         </div>
-        <div class="input-search">
-            <input type="text">
+        <form class="input-search" action="{{ route('search')}}/" method="get">
+            @csrf
+            <input type="text" name="query">
             <button class="btn">Rechercher</button>
-        </div>
+        </form>
         <div class="socials-links">
             <div class="text">
                 <span>Suivez moi sur</span>

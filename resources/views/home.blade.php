@@ -7,7 +7,7 @@
     <div class="right-content">
         <div class="post-item big-post-item">
             <div class="post-img">
-                <img src="img/alison-wang-mou0S7ViElQ-unsplash.jpg" alt="">
+                <img src="{{ route('displayImage',['filename'=>explode('/',$topPosts[0]->image)[1] ]) }}" alt="">
                 <div class="post-img-detail">
                     <div class="categorie">
                         <span>lorem ipsum</span>
@@ -21,18 +21,15 @@
             </div>
             <div class="post-resume">
                 <a href="" class="title">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Consectetur dolore modi ipsam repellat id adipisci.
+                {{ $topPosts[0]->title }}
                 </a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem excepturi nobis inventore ad modi non.
-                    Eligendi dolore sint minus odio.
+                <p>{{ $topPosts[0]->content }}
                 </p>
             </div>
         </div>
         <div class="post-item min-post-item">
             <div class="post-img">
-                <img src="img/braxton-apana-gmZPVLtfVVQ-unsplash.jpg" alt="">
+                <img src="{{ route('displayImage',['filename'=>explode('/',$topPosts[1]->image)[1]]) }}" alt="">
                 <div class="post-img-detail">
                     <div class="categorie">
                         <span>lorem ipsum</span>
@@ -46,19 +43,16 @@
             </div>
             <div class="post-resume">
                 <a href="" class="title">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    {{ $topPosts[1]->title }}
                 </a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem excepturi nobis inventore ad modi non.
-                    Eligendi dolore sint minus odio.
-                </p>
+                <p>{{ $topPosts[1]->content }}</p>
             </div>
         </div>
     </div>
     <div class="left-content">
         <div class="post-item">
             <div class="post-img">
-                <img src="img/yogendra-singh-jWGNA5VIMRg-unsplash.jpg" alt="">
+                <img src="{{ route('displayImage',['filename'=>explode('/',$topPosts[2]->image)[1] ]) }}" alt="">
                 <div class="post-img-detail">
                     <div class="categorie">
                         <span>lorem ipsum</span>
@@ -72,15 +66,14 @@
             </div>
             <div class="post-resume">
                 <a href="" class="title">
-                    Lorem ipsum dolor sit amet consectetur.
+                    {{ $topPosts[2]->title }}
                 </a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
+                <p>{{ $topPosts[2]->content }}</p>
             </div>
         </div>
         <div class="post-item">
             <div class="post-img">
-                <img src="img/158076482_5140434096027051_1989582238198469717_n.jpg" alt="">
+                <img src="{{ route('displayImage',['filename'=>explode('/',$topPosts[3]->image)[1] ]) }}" alt="">
                 <div class="post-img-detail">
                     <div class="categorie">
                         <span>lorem ipsum</span>
@@ -93,11 +86,8 @@
                 </div>
             </div>
             <div class="post-resume">
-                <a href="" class="title">
-                    Lorem ipsum dolor sit amet consectetur.
-                </a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
+                <a href="" class="title">{{ $topPosts[3]->title }}</a>
+                <p>{{ $topPosts[3]->content }}</p>
             </div>
         </div>
     </div>
@@ -106,44 +96,21 @@
     <div class="daily-news">
         <h2 class="section-title">Daily news</h2>
         <div class="daily-news-items">
-            <div class="daily-news-items-item">
-                <div class="img">
-                    <img src="img/158076482_5140434096027051_1989582238198469717_n.jpg" alt="">
-                </div>
-                <div class="text">
-                    <div class="cat-and-autor">
-                        <span class="cat">lorem ipsum</span>
-                        <span class="autor">Sele shabani</span>
+            @foreach ($dailyPosts as $dPost)
+                <div class="daily-news-items-item">
+                    <div class="img">
+                        <img src="{{ route('displayImage',['filename'=>explode('/',$dPost->image)[1] ]) }}" alt="">
                     </div>
-                    <a href="" class="title">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, qui.
-                    </a>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                        Dolor sapiente rerum nesciunt architecto animi, unde cumque quisquam! 
-                        Doloremque, quidem magni.
-                    </p>
-                </div>
-            </div>
-            <div class="daily-news-items-item">
-                <div class="img">
-                    <img src="img/158076482_5140434096027051_1989582238198469717_n.jpg" alt="">
-                </div>
-                <div class="text">
-                    <div class="cat-and-autor">
-                        <span class="cat">lorem ipsum</span>
-                        <span class="autor">Sele shabani</span>
+                    <div class="text">
+                        <div class="cat-and-autor">
+                            <span class="cat">lorem ipsum</span>
+                            <span class="autor">Sele shabani</span>
+                        </div>
+                        <a href="" class="title">{{ $dPost->title}} </a>
+                        <p> {{ $dPost->content }} </p>
                     </div>
-                    <a href="" class="title">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, qui.
-                    </a>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                        Dolor sapiente rerum nesciunt architecto animi, unde cumque quisquam! 
-                        Doloremque, quidem magni.
-                    </p>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="latest-news">

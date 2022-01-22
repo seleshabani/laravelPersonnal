@@ -20,7 +20,7 @@ class PostsFactory extends Factory
             'title' => $this->faker->name(),
             'slug' => $this->faker->unique()->slug(),
             'content' => $this->faker->text(200),
-            'image' => '',
+            'image' => 'images/A7Wf4GM5dOZfka2Ccr1uJjPoq26XCb7sO9QL2p0w.jpg',
             // 'categorie_id' => Categories::find(),
             'created_at' => now(),
             'updated_at' => now(),
