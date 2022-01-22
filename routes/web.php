@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[BlogController::class,'home'])->name('home');
 Route::get('/sites/{slug}',[BlogController::class,'categorie'])->name('byCategorie');
 Route::get('/sites/{slug}/{newsSlug}',[BlogController::class,'single'])->name('single');
-Route::get('/image/{filename}', [ImageController::class,'display'])->name('displayImage');
+Route::get('/storage/app/{filename}', [ImageController::class,'display'])->name('displayImage');

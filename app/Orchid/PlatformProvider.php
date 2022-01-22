@@ -32,14 +32,14 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Categories')
                 ->icon('code')
                 ->list([
-                    Menu::make('liste')->icon('pencil')->route('platform.categories.list'),
-                    Menu::make('ajouter')->icon('add')->route('platform.categories.edit'),
+                    Menu::make('liste')->icon('papers')->route('platform.categories.list'),
+                    Menu::make('ajouter')->icon('pencil')->route('platform.categories.edit'),
                 ]),
             Menu::make('Posts')
                 ->icon('code')
                 ->list([
-                    Menu::make('liste')->icon('pencil')->route('platform.posts.list'),
-                    Menu::make('ajouter')->icon('add')->route('platform.posts.edit'),
+                    Menu::make('liste')->icon('papers')->route('platform.posts.list'),
+                    Menu::make('ajouter')->icon('pencil')->route('platform.posts.edit'),
                 ]),
                 
             Menu::make(__('Users'))

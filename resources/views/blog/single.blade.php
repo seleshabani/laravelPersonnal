@@ -10,7 +10,7 @@
         <div class="post-container">
             <h1>{{ $post->title }}</h1>
             <div class="post-img">
-                <img src="{{ url('storage/app/'.$post->image) }}" alt="">
+                <img src="{{ route('displayImage',['filename'=>explode('/',$post->image)[1] ]) }}" alt="">
             </div>
             <div class="post-content">
                 {!! Markdown::parse($post->content) !!}

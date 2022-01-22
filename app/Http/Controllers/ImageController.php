@@ -10,15 +10,15 @@ class ImageController extends Controller
 {
     public function display($filename)
     {
-
-        $path = storage_path('app/' . $filename);
-        dd('ok');
+        
+        $path = storage_path('app/images/' . $filename);
+        // dd($path);
         if (!File::exists($path)) {
             abort(404);
         }
         $file = File::get($path);
         $type = File::mimeType($path);
-        $response = Response::make($file, 200);
+        $response = (new Response($file, 200));
         $response->header("Content-Type", $type);
         return $response;
 
