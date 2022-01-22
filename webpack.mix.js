@@ -17,4 +17,5 @@ mix.js('resources/js/responsive.js', 'public/js')
     .postCss('resources/css/all.css', 'public/css', [])
     .postCss('resources/css/app.css', 'public/css', [])
     .postCss('resources/css/mobile.css', 'public/css', [])
-.copyDirectory('resources/webfonts','public/webfonts');
+    .postCss('resources/css/cat.css', 'public/css', [])
+    .copyDirectory('resources/webfonts','public/webfonts');

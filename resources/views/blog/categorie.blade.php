@@ -27,11 +27,8 @@
                             </p>
                         </div>
                     </div>
-                @endforeach
-            </div>
-            <div class="pagination">
-                <a class="btn" href="">
-                </a>
+                    @endforeach
+                    {{ $posts->links('vendor.pagination.pagination')}}
             </div>
         </div>
     </div>

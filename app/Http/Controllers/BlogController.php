@@ -29,7 +29,7 @@ class BlogController extends Controller
     {
         $categorie = Categories::where('slug',$slug)->get();
         // dd($categorie);
-        $posts = Posts::where('categorie_id',$categorie[0]->id)->get();
+        $posts = Posts::where('categorie_id',$categorie[0]->id)->paginate(5);
         return view('blog.categorie',['posts'=>$posts,'categorie'=>$categorie[0]]);
     }
     public function single($slug,$newsSlug)
