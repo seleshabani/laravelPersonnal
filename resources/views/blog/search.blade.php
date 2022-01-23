@@ -15,10 +15,10 @@
                         </div>
                         <div class="text">
                             <div class="cat-and-autor">
-                                <span class="cat"></span>
+                                <span class="cat">{{ $post->categorie->title }}</span>
                                 <span class="autor">Sele shabani</span>
                             </div>
-                            <a href="" class="title">
+                            <a href="{{ route('single',['slug'=>$post->categorie->slug,'newsSlug'=>$post->slug]) }}" class="title">
                                 {{ $post->title }}
                             </a>
                             <p>
@@ -29,10 +29,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="pagination">
-                <a class="btn" href="">
-                </a>
-            </div>
+            {{ $posts->links('vendor.pagination.pagination')}}
         </div>
     </div>
 

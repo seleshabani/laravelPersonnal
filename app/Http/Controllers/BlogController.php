@@ -46,9 +46,17 @@ class BlogController extends Controller
     {
 
         $query = $request::get('query');
-        $posts = Posts::where('title','like',"%$query%")->get();
-
-        // dd($posts);
+        $posts = Posts::where('title','like',"%$query%")->paginate(5);
+        
         return view('blog.search',['posts'=>$posts,'query'=>$query]);
+    }
+
+    public function login()
+    {
+        return view('users.loginchoice');
+    }
+    public function register()
+    {
+        return view('users.registerChoice');
     }
 }

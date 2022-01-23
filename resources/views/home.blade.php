@@ -13,18 +13,17 @@
                         <span>lorem ipsum</span>
                     </div>
                     <div class="stats">
-                        <span><i class="far fa-eye"></i></span>
+                        <span><i class="far fa-eye"></i> {{ $topPosts[0]->counter}} </span>
                         <span><i class="far fa-comments"></i></span>
                         <span><i class="far fas fa-share-alt"></i></span>
                     </div>
                 </div>
             </div>
             <div class="post-resume">
-                <a href="" class="title">
+                <a href="{{ route('single',['slug'=>$topPosts[0]->categorie->slug,'newsSlug'=>$topPosts[0]->slug]) }}" class="title">
                 {{ $topPosts[0]->title }}
                 </a>
-                <p>{{ $topPosts[0]->content }}
-                </p>
+                <p>{{ $topPosts[0]->content }}</p>
             </div>
         </div>
         <div class="post-item min-post-item">
@@ -42,7 +41,7 @@
                 </div>
             </div>
             <div class="post-resume">
-                <a href="" class="title">
+                <a href="{{ route('single',['slug'=>$topPosts[1]->categorie->slug,'newsSlug'=>$topPosts[1]->slug]) }}" class="title">
                     {{ $topPosts[1]->title }}
                 </a>
                 <p>{{ $topPosts[1]->content }}</p>
@@ -65,7 +64,7 @@
                 </div>
             </div>
             <div class="post-resume">
-                <a href="" class="title">
+                <a href="{{ route('single',['slug'=>$topPosts[2]->categorie->slug,'newsSlug'=>$topPosts[2]->slug]) }}" class="title">
                     {{ $topPosts[2]->title }}
                 </a>
                 <p>{{ $topPosts[2]->content }}</p>
@@ -86,7 +85,7 @@
                 </div>
             </div>
             <div class="post-resume">
-                <a href="" class="title">{{ $topPosts[3]->title }}</a>
+                <a href="{{ route('single',['slug'=>$topPosts[3]->categorie->slug,'newsSlug'=>$topPosts[3]->slug]) }}" class="title">{{ $topPosts[3]->title }}</a>
                 <p>{{ $topPosts[3]->content }}</p>
             </div>
         </div>
@@ -103,10 +102,10 @@
                     </div>
                     <div class="text">
                         <div class="cat-and-autor">
-                            <span class="cat">lorem ipsum</span>
+                            <span class="cat">{{ $dPost->categorie->title }}</span>
                             <span class="autor">Sele shabani</span>
                         </div>
-                        <a href="" class="title">{{ $dPost->title}} </a>
+                        <a href="{{ route('single',['slug'=>$dPost->categorie->slug,'newsSlug'=>$dPost->slug]) }}" class="title">{{ $dPost->title}} </a>
                         <p> {{ $dPost->content }} </p>
                     </div>
                 </div>

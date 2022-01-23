@@ -15,8 +15,15 @@
     <link rel="stylesheet" href="{{ asset('css/cat.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/responsive.js') }}" defer></script>
-
+    
 </head>
+<style>
+    header .action{
+        display: flex;
+        flex-direction: row;
+        gap: .1rem;
+    }
+</style>
 <body>
     <header>
         <div class="brand">
@@ -37,8 +44,14 @@
                 <a href=""><i class="fab fa-github"></i></a>
             </div>
         </div>
+        
         <div class="action">
-            <a class="btn" href="">Connexion</a>
+            @auth
+                <a href="{{ route('logOut') }}" class="btn">Deconnexion  - {{ Auth::user()->name }}</a>
+            @else
+                <a class="btn" href="{{ route('loginMode')}}">Connexion</a>
+                <a class="btn" href="{{ route('registerMode')}}">Inscription</a>
+            @endauth
         </div>
     </header>
     <nav>
