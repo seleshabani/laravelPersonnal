@@ -102,5 +102,18 @@
             @yield('content')
         </div>
     </main>
+    <footer>
+        <div class="site-map">
+            <ul>
+                @foreach ($categories as $categorie)
+                    <li>
+                        <a href="{{ route('byCategorie',['slug'=>$categorie->slug]) }}">
+                            {{ $categorie->title }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

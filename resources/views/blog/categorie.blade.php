@@ -3,6 +3,11 @@
 @section('title', $categorie->title)
 
 @section('content')
+<style>
+    a.active.btn{
+        background-color: #e96928;
+    }
+</style>
 <div class="container">
     <div class="by-categories-content">
         <div class="post-content">

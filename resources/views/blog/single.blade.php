@@ -15,52 +15,43 @@
             <div class="post-content">
                 {!! Markdown::parse($post->content) !!}
             </div>
-            {{-- <div class="post-comments">
+
+            <div class="post-comments">
                 <h2 class="section-title">commentaires</h2>
-                <% comments.map(comment =>{%>
-                    <div class="post-comments-comment">
-                        <div class="autor">
-                            <span>
-                                <i class="fa fa-user"></i>
-                            </span>
-                            <span>
-                                <%= comment.autorName %>
-                            </span>
-                        </div>
-                        <div class="content">
-                            <span>
-                              -  <%= comment.content %>
-                            </span>
-                        </div>
-                    </div> 
-                <%})%>
-            </div> --}}
+                @foreach ($comments as $comment) 
+                    <div>
+                        {{ $comment->email }} - {{ $comment->comment }}
+                    </div>
+                @endforeach
+            </div>
             <div class="post-action">
                 <h2 class="section-title">Laissez un commentaire</h2>
-                {{-- <% if(locals.user === undefined){%> --}}
-                    {{-- <a href="/login<%= url('login.choice') %>">
-                    Connectez vous pour laisser un commentaire
-                    </a> --}}
-                {{-- <% } else { %> --}}
-                <form action="" method="post">
-                    <div class="form-row">
-                        <div class="form-input">
-                            <input type="email" name="email" placeholder="email">
+                @auth
+                    <form action="" method="POST">
+                        @csrf
+                        <div class="form-row">
+                            <div class="form-input">
+                                <input type="email" name="email" placeholder="email">
+                            </div>
+                            <div class="form-input">
+                                <input type="text" name="name" placeholder="votre nom(pseudo)">
+                            </div>
                         </div>
-                        <div class="form-input">
-                            <input type="text" name="name" placeholder="votre nom(pseudo)">
+                        <div class="form-row">
+                            <textarea name="comment" id="" cols="30" rows="10" placeholder="votre commentaire ici">
+                                
+                            </textarea>
                         </div>
+                        <div class="form-action">
+                            <button class="btn">Commenter</button>
+                        </div>
+                    </form>
+                @else
+                    <div>
+                        <a href="{{ route('login') }}">vous devez être connecté pour laisser un commentaire</a>
                     </div>
-                    <div class="form-row">
-                        <textarea name="content" id="" cols="30" rows="10" placeholder="votre commentaire ici">
-                            
-                        </textarea>
-                    </div>
-                    <div class="form-action">
-                        <button class="
-                        btn">Commenter</button>
-                    </div>
-                </form>
+                @endauth
+               
             </div>
         </div>
     </div>

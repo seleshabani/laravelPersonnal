@@ -380,4 +380,12 @@ footer{
     position: relative;
     bottom: 0px;
     margin-top: 10px;
+    padding: 1rem;
+}
+
+footer .site-map ul{
+    list-style: none;
+}
+footer .site-map li a{
+    color: whitesmoke;
 }

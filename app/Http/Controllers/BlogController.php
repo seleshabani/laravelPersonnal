@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Posts;
 use App\Models\Categories;
+use App\Models\Comments;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
 class BlogController extends Controller
@@ -32,15 +34,25 @@ class BlogController extends Controller
         $posts = Posts::where('categorie_id',$categorie[0]->id)->paginate(5);
         return view('blog.categorie',['posts'=>$posts,'categorie'=>$categorie[0]]);
     }
-    public function single($slug,$newsSlug)
+    public function single(Request $request,$slug,$newsSlug)
     {
+        $user = Auth::user();
         $post = Posts::where('slug',$newsSlug)->get();
-        // dd($post[0]);
-        $post[0]->counter = $post[0]->counter + 1;
-        // $post[0]->save();
-        // dd( $post[0]->save());
-        $re = $post[0]->save();
-        return view('blog.single',['post'=>$post[0]]);
+
+        if ($request::method()=='POST') {
+            // dd($request::all());
+            $comment = new Comments();
+            $comment->comment = $request::get('comment');
+            $comment->posts_id = $post[0]->id;
+            $comment->email = $request::get('email');
+            $comment->save();
+            $comments = Comments::where('posts_id',$post[0]->id)->get();
+        }else{
+            $post[0]->counter = $post[0]->counter + 1;
+            $re = $post[0]->save();
+            $comments = Comments::where('posts_id',$post[0]->id)->get();
+        }
+        return view('blog.single',['post'=>$post[0],'comments'=>$comments]);
     }
     public function search(Request $request)
     {
@@ -50,7 +62,6 @@ class BlogController extends Controller
         
         return view('blog.search',['posts'=>$posts,'query'=>$query]);
     }
-
     public function login()
     {
         return view('users.loginchoice');

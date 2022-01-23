@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[BlogController::class,'home'])->name('home');
 Route::get('/sites/{slug}',[BlogController::class,'categorie'])->name('byCategorie');
 Route::get('/sites/{slug}/{newsSlug}',[BlogController::class,'single'])->name('single');
+Route::post('/sites/{slug}/{newsSlug}',[BlogController::class,'single'])->name('single.comment');
 Route::get('/search',[BlogController::class,'search'])->name('search');
 Route::get('/storage/app/{filename}', [ImageController::class,'display'])->name('displayImage');
 Route::get('/login/choice', [BlogController::class,'login'])->name('loginMode');
