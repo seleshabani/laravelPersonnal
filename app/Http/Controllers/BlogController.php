@@ -62,6 +62,10 @@ class BlogController extends Controller
         
         return view('blog.search',['posts'=>$posts,'query'=>$query]);
     }
+    public function searchForm()
+    {
+        return view('blog.searchForm');
+    }
     public function login()
     {
         return view('users.loginchoice');

@@ -69,7 +69,7 @@
         </ul>
         <div class="mobile-actions">
             <div class="search-togler">
-                <a href="">
+                <a href="{{ route('searchForm') }}">
                     <i class="fa fa-search"></i>
                 </a>
             </div>
@@ -82,8 +82,8 @@
     </nav>
     <div class="menu-mobile">
         <div class="brand">
-            <h2>{{ config('app.name', 'Laravel') }}</h2>
             <div class="close">X</div>
+            <h2>{{ config('app.name', 'Laravel') }}</h2>
         </div>
         <ul class="menu-items">
                         
@@ -103,16 +103,31 @@
         </div>
     </main>
     <footer>
-        <div class="site-map">
-            <ul>
-                @foreach ($categories as $categorie)
-                    <li>
-                        <a href="{{ route('byCategorie',['slug'=>$categorie->slug]) }}">
-                            {{ $categorie->title }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
+        <div class="footer-content">
+            <div class="site-map">
+                <h2>site map</h2>
+                <ul>
+                    @foreach ($categories as $categorie)
+                        <li>
+                            <a href="{{ route('byCategorie',['slug'=>$categorie->slug]) }}">
+                                {{ $categorie->title }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="footer-actions">
+                <h2>Connexion</h2>
+                @auth
+                    <a href="{{ route('logOut') }}">Deconnexion  - {{ Auth::user()->name }}</a>
+                @else
+                    <a href="{{ route('loginMode')}}">Connexion</a> | <a href="{{ route('registerMode')}}">Inscription</a>
+                @endauth
+            </div>
+        </div>
+        <hr>
+        <div class="brand-autor">
+            <p>fait avec <i class="fa fa-heart"></i> par <a href="">{{ getenv('APP_AUTOR') }}</a></p>
         </div>
     </footer>
 </body>

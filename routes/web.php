@@ -21,6 +21,7 @@ Route::get('/sites/{slug}',[BlogController::class,'categorie'])->name('byCategor
 Route::get('/sites/{slug}/{newsSlug}',[BlogController::class,'single'])->name('single');
 Route::post('/sites/{slug}/{newsSlug}',[BlogController::class,'single'])->name('single.comment');
 Route::get('/search',[BlogController::class,'search'])->name('search');
+Route::get('/searchForm',[BlogController::class,'searchForm'])->name('searchForm');
 Route::get('/storage/app/{filename}', [ImageController::class,'display'])->name('displayImage');
 Route::get('/login/choice', [BlogController::class,'login'])->name('loginMode');
 Route::get('/users/login', [SecurityController::class,'login'])->name('login');

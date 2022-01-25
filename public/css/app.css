@@ -202,6 +202,7 @@ nav .mobile-actions{
 /* mobile nav */
 .menu-mobile{
     display: none;
+    visibility: hidden;
 }
 main{
     position: relative;
@@ -235,21 +236,21 @@ main .container .top-header{
     /* border: solid green; */
 }
 main .container .top-header .right-content{
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     /* border:solid yellow; */
 }
 .top-header .right-content .big-post-item{
-    width: 60%;
+    width: 50%;
     height: 100%;
     /* border: solid palevioletred; */
 }
 .top-header .right-content .min-post-item{
-    width: 35%;
+    width: 20%;
     height: 100%;
     /* border: solid green; */
 }
@@ -375,20 +376,49 @@ main .container .top-header .right-content{
     font-size: 1.3rem;
 }
 footer{
+    margin-top: 1rem;
     width: 100%;
-    height: 200px;
+    /* height: 200px; */
     background-color: var(--btn-color);
     color: white;
-    position: relative;
+    padding: 1rem;
+    /* border: solid red; */
+    /* position: relative;
     bottom: 0px;
     margin-top: 10px;
     padding: 1rem;
+    display: flex;
+    flex-direction: column; */
 }
-
+/* footer .footer-content{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+} */
+footer .site-map h2{
+    text-transform: capitalize;
+}
 footer .site-map ul{
     list-style: none;
 }
 footer .site-map li a{
     color: whitesmoke;
 }
-
+footer .site-map li a:hover{
+    color: var(--line-color)
+}
+footer .brand-autor{
+    background-color: var(--btn-color);
+}
+footer .brand-autor p{
+    margin: 0;
+}
+footer .brand-autor a{
+    color: whitesmoke;
+}
+footer .brand-autor a:hover{
+    color: var(--line-color);
+}
+footer .footer-actions a{
+    color: whitesmoke;
+}

@@ -57,6 +57,7 @@
     .menu-mobile{
         /* display: flex; */
         flex-direction: column;
+        visibility: visible;
         position: fixed;
         right: 0%;
         top: 0%;
@@ -66,7 +67,7 @@
         z-index: 999;
         background-color: var(--btn-color);
         padding: .5rem;
-        animation: slideIn 300ms linear;
+        /* animation: slideIn 300ms linear; */
     }
     .menu-mobile .brand{
         display: flex;
@@ -139,24 +140,25 @@
     main .container .content .daily-news{
         width: 100%;
     }
+    .container .content .latest-news{
+        width: 100%;
+    }
+    footer .footer-content{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        gap: 1rem;
+    }
     @keyframes slideIn {
-        from{
-            opacity: 0;
-            transform: translateX(50%) ;
-        }
         to{
             opacity: 1;
             transform: translateX(0px);
         }
     }
     @keyframes slideOut {
-        from{
-            opacity: 1;
-            transform: translateX(0px) ;
-        }
         to{
-            opacity: 0;
-            transform: translateX(50%);
+            /* opacity: 0; */
+            transform: translateX(150%);
         }
     }
   }
